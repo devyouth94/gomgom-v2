@@ -1,6 +1,6 @@
 import styled, { useTheme } from 'styled-components';
 import { useNavigate } from 'react-router';
-import FullLogo from 'common/components/FullLogo';
+import FullLogo from 'common/elements/FullLogo';
 import GlobalButton from 'common/elements/GlobalButton';
 
 const LastSlide = () => {

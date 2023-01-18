@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import BasicModal from 'common/modal/BasicModal';
 import { detectInAppBrowser, detectIphone } from 'lib/utils/deviceDetector';
 import { userStorage } from 'lib/utils/storage';
-import FullLogo from 'common/components/FullLogo';
+import FullLogo from 'common/elements/FullLogo';
 
 const Home = () => {
   const navigate = useNavigate();
