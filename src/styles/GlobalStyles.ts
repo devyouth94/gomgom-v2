@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import 'static/fonts/fonts.css';
+import { FONT_M } from './textStyles';
 
 const GlobalStyles = createGlobalStyle`
   ${reset};
@@ -30,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
   
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
     height: 100%;
     box-sizing: border-box;
     background-color: ${({ theme }) => theme.color.BG};
@@ -49,6 +50,18 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.color.BLACK};
 
     cursor: pointer;
+  }
+
+  textarea,
+  input {
+    border: none;
+    background-color: transparent;
+    ${FONT_M};
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.color.BLACK}
   }
 `;
 

@@ -85,10 +85,11 @@ interface Arrow {
 }
 
 const StContainer = styled.main`
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 `;
 
 const StSwiper = styled(Swiper)`
+  width: 100%;
   height: 100%;
 `;
 
