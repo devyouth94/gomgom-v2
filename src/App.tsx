@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
+import { store } from 'app/config/store';
 import Router from 'router/Router';
 import useThemeStore from 'stores/useThemeStore';
 import GlobalStyles from 'styles/GlobalStyles';
@@ -23,10 +25,12 @@ const App = () => {
   }, [screenSize]);
 
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : defaultTheme}>
-      <GlobalStyles />
-      <Router />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme === 'dark' ? darkTheme : defaultTheme}>
+        <GlobalStyles />
+        <Router />
+      </ThemeProvider>
+    </Provider>
   );
 };
 
