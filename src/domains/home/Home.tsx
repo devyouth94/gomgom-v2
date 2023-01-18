@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import BasicModal from 'common/modal/BasicModal';
+import FullLogo from 'common/elements/FullLogo';
 import { detectInAppBrowser, detectIphone } from 'lib/utils/deviceDetector';
 import { userStorage } from 'lib/utils/storage';
-import FullLogo from 'common/elements/FullLogo';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Home = () => {
       //1. 로그인 상태라면 메인 화면으로 이동한다.
       //2. 비로그인 상태라면 온보딩 화면으로 이동한다.
       setTimeout(() => {
-        if (userStorage.getToken()) {
+        if (userStorage.getToken('access')) {
           navigate('/select');
         } else {
           navigate('/welcome');
