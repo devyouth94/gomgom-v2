@@ -1,9 +1,10 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { FONT_BOLD, FONT_EXTRABOLD } from 'styles/textStyles';
 
 interface Props extends ButtonProps {
   children: string | React.ReactNode;
-  onClick: (() => Promise<void>) | (() => void);
+  onClick: ((event: any) => Promise<void>) | (() => void);
 }
 
 const GlobalButton = ({
