@@ -41,6 +41,8 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     letter-spacing: -0.5px;
 
+    overflow: overlay;
+
     cursor: default;
   }
 
@@ -59,9 +61,13 @@ const GlobalStyles = createGlobalStyle`
     ${FONT_M};
   }
 
+  ::placeholder {
+    color: ${({ theme }) => theme.color.SUB_2};
+  }
+
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.color.BLACK}
+    color: ${({ theme }) => theme.color.BLACK};
   }
 `;
 
