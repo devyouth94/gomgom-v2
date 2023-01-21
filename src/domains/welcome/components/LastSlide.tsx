@@ -14,7 +14,7 @@ const LastSlide = () => {
       <StButtonContainer>
         <GlobalButton onClick={() => navigate('/signin')}>시작하기</GlobalButton>
         <GlobalButton
-          onClick={() => navigate('/vote')}
+          onClick={() => navigate('/select')}
           bgc={theme.color.WHITE}
           font={theme.color.MAIN_2}
         >
