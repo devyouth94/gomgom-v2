@@ -1,6 +1,11 @@
-const Logo = () => {
+interface Props {
+  handleClick?: () => void;
+}
+
+const Logo = ({ handleClick }: Props) => {
   return (
     <svg
+      onClick={handleClick}
       width="115"
       height="85"
       viewBox="0 0 115 85"
