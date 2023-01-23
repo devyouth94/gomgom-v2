@@ -97,7 +97,7 @@ const StMenu = styled.div`
 
 const StDown = styled.div<{ isOpen: boolean }>`
   position: fixed;
-  top: 9rem;
+  top: 16rem;
 
   display: flex;
   flex-direction: column;
