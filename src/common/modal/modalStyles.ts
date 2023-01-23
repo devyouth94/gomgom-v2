@@ -1,5 +1,20 @@
 import styled from 'styled-components';
-import { FONT_M } from 'styles/textStyles';
+import { FONT_BOLD, FONT_M } from 'styles/textStyles';
+
+const StTitleContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 5.6rem;
+  background-color: ${({ theme }) => theme.color.MAIN_2};
+
+  border-radius: 2rem 2rem 0 0;
+
+  ${FONT_BOLD};
+  color: ${({ theme }) => theme.color.WHITE};
+`;
 
 const StTextContainer = styled.section`
   display: flex;
@@ -76,4 +91,11 @@ const StModalContainer = styled.div`
   z-index: 9999;
 `;
 
-export { StTextContainer, StButtonContainer, StWindow, StBackground, StModalContainer };
+export {
+  StTitleContainer,
+  StTextContainer,
+  StButtonContainer,
+  StWindow,
+  StBackground,
+  StModalContainer,
+};

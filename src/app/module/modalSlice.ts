@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-type ModalType = 'basic' | 'signup';
+type ModalType = 'basic' | 'signup' | 'signin' | 'write';
 
 interface ModalState {
   modalType: {
     [x: string]: boolean;
     basic: boolean;
     signup: boolean;
+    signin: boolean;
+    write: boolean;
   };
   message: string;
 }
@@ -16,6 +18,8 @@ const initialState: ModalState = {
   modalType: {
     basic: false,
     signup: false,
+    signin: false,
+    write: false,
   },
   message: '',
 };
