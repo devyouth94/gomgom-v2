@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from 'common/components/Header';
+import Nav from 'common/components/Nav';
 import SelectItem from 'common/components/SelectItem';
 import useIntersect from 'common/hooks/useIntersect';
 import useGetSelect from 'domains/select/hooks/useGetSelect';
@@ -38,6 +39,8 @@ const Select = () => {
         ))}
         <StTarget ref={ref} />
       </StContainer>
+
+      <Nav />
     </>
   );
 };
