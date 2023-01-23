@@ -4,6 +4,7 @@ import Home from 'domains/home/Home';
 import Welcome from 'domains/welcome/Welcome';
 import SignIn from 'domains/sign/SignIn';
 import SignUp from 'domains/sign/SignUp';
+import Select from 'domains/select/Select';
 
 const Router = () => {
   return (
@@ -14,6 +15,8 @@ const Router = () => {
 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+
+        <Route path="/select" element={<Select />} />
       </Routes>
     </BrowserRouter>
   );
