@@ -16,6 +16,10 @@ const userStorage = {
   getToken: (type: 'access' | 'refresh') => {
     return localStorage.getItem(`${type}Token`);
   },
+
+  getUserKey: () => {
+    return Number(localStorage.getItem('userKey'));
+  },
 };
 
 Object.freeze(userStorage);

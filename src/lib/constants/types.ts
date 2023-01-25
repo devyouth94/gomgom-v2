@@ -8,3 +8,16 @@ export interface SelectItemProps {
   title: string;
   total: number;
 }
+
+export interface DetailItemProps {
+  category: string;
+  completion: boolean;
+  deadLine: string;
+  image: string[];
+  nickname: string;
+  options: string[];
+  point: number;
+  selectKey: number;
+  title: string;
+  userKey: number;
+}
