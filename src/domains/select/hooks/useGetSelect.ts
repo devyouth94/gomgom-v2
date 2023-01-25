@@ -89,7 +89,9 @@ const useGetSelect = () => {
     return useInfiniteQuery(['filter', selected.filter], getSelectByFilter, {
       getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),
     });
-  } else if (selected.category !== '카테고리') {
+  }
+
+  if (selected.category !== '카테고리') {
     return useInfiniteQuery(
       ['category', selected.category],
       ({ pageParam = 1 }) => getSelectByCategory({ value: selected.category, pageParam }),
@@ -97,15 +99,17 @@ const useGetSelect = () => {
         getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),
       },
     );
-  } else if (selected.proceeding === '진행중인 투표') {
+  }
+
+  if (selected.proceeding === '진행중인 투표') {
     return useInfiniteQuery(['proceeding', selected.proceeding], getSelectByProceeding, {
       getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),
     });
-  } else {
-    return useInfiniteQuery(['select'], getSelectAll, {
-      getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),
-    });
   }
+
+  return useInfiniteQuery(['select'], getSelectAll, {
+    getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),
+  });
 };
 
 export default useGetSelect;
