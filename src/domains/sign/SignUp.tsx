@@ -2,13 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
-import instance from 'app/instance';
-import { useAppDispatch } from 'app/config/hooks';
-import { toggleModal } from 'app/module/modalSlice';
 import Header from 'common/components/Header';
+import Main from 'common/components/Main';
 import GlobalButton from 'common/elements/GlobalButton';
 import GlobalInput from 'common/elements/GlobalInput';
 import SignModalState from 'domains/sign/components/SignModalState';
+
+import instance from 'app/instance';
+import { useAppDispatch } from 'app/config/hooks';
+import { toggleModal } from 'app/module/modalSlice';
 import useSignUpInput from 'domains/sign/hooks/useValidate';
 import { IconBack } from 'static/Icons/Icons';
 import { FONT_BOLD, FONT_S } from 'styles/textStyles';
@@ -40,7 +42,7 @@ const SignUp = () => {
         <h1>회원가입</h1>
       </Header>
 
-      <StContainer>
+      <StMain>
         <StInnerContainer validate={`${validateInfo.userId?.includes('가능한')}`}>
           <h2>아이디</h2>
           <GlobalInput
@@ -95,7 +97,7 @@ const SignUp = () => {
         </StInnerContainer>
 
         <GlobalButton onClick={handleClickSignUp}>가입하기</GlobalButton>
-      </StContainer>
+      </StMain>
     </>
   );
 };
@@ -106,13 +108,14 @@ interface ValidateProps {
   validate: string;
 }
 
-const StContainer = styled.main`
+const StMain = styled(Main)`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
 
-  padding: 2rem;
+  padding-top: 8.4rem;
+  padding-bottom: 2rem;
 `;
 
 const StInnerContainer = styled.section<ValidateProps>`

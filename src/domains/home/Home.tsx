@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import BasicModal from 'common/modal/BasicModal';
+import Main from 'common/components/Main';
 import FullLogo from 'common/elements/FullLogo';
+import BasicModal from 'common/modal/BasicModal';
+
 import { detectInAppBrowser, detectIphone } from 'lib/utils/deviceDetector';
 import { userStorage } from 'lib/utils/storage';
 
@@ -45,19 +47,17 @@ const Home = () => {
         </BasicModal>
       )}
 
-      <StContainer>
+      <StMain>
         <FullLogo />
-      </StContainer>
+      </StMain>
     </>
   );
 };
 
 export default Home;
 
-const StContainer = styled.main`
+const StMain = styled(Main)`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 100vh;
 `;

@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
-
 //Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperClass, Navigation } from 'swiper';
@@ -9,9 +8,10 @@ import 'swiper/css/navigation';
 
 import Navi from 'domains/welcome/components/Navi';
 import LastSlide from 'domains/welcome/components/LastSlide';
+
 import { GomGomAnswer, GomGomRoom, GomGomVote } from 'static/images/GomGom';
-import { FONT_EXTRABOLD, FONT_XL } from 'styles/textStyles';
 import { IconBack, IconOnboarding } from 'static/Icons/Icons';
+import { FONT_EXTRABOLD, FONT_XL } from 'styles/textStyles';
 
 const Welcome = () => {
   const [pagination, setPagination] = useState(1);
@@ -85,7 +85,17 @@ interface Arrow {
 }
 
 const StContainer = styled.main`
+  @media ${({ theme }) => theme.device.PC} {
+    position: absolute;
+    left: ${({ theme }) => theme.style.LEFT};
+    transform: ${({ theme }) => theme.style.TRANSFORM};
+
+    width: ${({ theme }) => theme.style.WIDTH};
+  }
+
+  width: 100%;
   height: calc(var(--vh, 1vh) * 100);
+  background-color: ${({ theme }) => theme.color.BG};
 `;
 
 const StSwiper = styled(Swiper)`

@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
-import instance from 'app/instance';
 import Header from 'common/components/Header';
+import Main from 'common/components/Main';
 import GlobalInput from 'common/elements/GlobalInput';
 import GlobalButton from 'common/elements/GlobalButton';
-import SignUpNavi from 'domains/sign/components/SignUpNavi';
 import SocialLoginButton from 'domains/sign/components/SocialLoginButton';
+import SignUpNavi from 'domains/sign/components/SignUpNavi';
+
+import instance from 'app/instance';
 import { userStorage } from 'lib/utils/storage';
 import { IconBack } from 'static/Icons/Icons';
 import { FONT_S } from 'styles/textStyles';
@@ -50,7 +52,7 @@ const SignIn = () => {
         <h1>로그인</h1>
       </Header>
 
-      <StContainer>
+      <StMain>
         <StFormContainer onSubmit={handleClickLogin}>
           <GlobalInput
             name="userId"
@@ -78,20 +80,21 @@ const SignIn = () => {
         </StButtonContainer>
 
         <SignUpNavi />
-      </StContainer>
+      </StMain>
     </>
   );
 };
 
 export default SignIn;
 
-const StContainer = styled.main`
+const StMain = styled(Main)`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3.4rem;
 
-  padding: 2rem;
+  padding-top: 8.4rem;
+  padding-bottom: 2rem;
 `;
 
 const StFormContainer = styled.form`
@@ -105,7 +108,7 @@ const StFormContainer = styled.form`
 const StErrorMsg = styled.span`
   margin-left: 1.2rem;
 
-  ${FONT_S}
+  ${FONT_S};
   color: ${({ theme }) => theme.color.WARN};
 `;
 
