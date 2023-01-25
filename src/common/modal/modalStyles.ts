@@ -81,14 +81,17 @@ const StBackground = styled.article`
 
 const StModalContainer = styled.div`
   @media ${({ theme }) => theme.device.PC} {
-    width: 450px;
+    left: ${({ theme }) => theme.style.LEFT};
+    transform: ${({ theme }) => theme.style.TRANSFORM};
+
+    width: ${({ theme }) => theme.style.WIDTH};
   }
 
   position: fixed;
 
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  z-index: 99;
 `;
 
 export {

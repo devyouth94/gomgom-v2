@@ -31,18 +31,26 @@ const device = {
   PC: `screen and (min-width: 768px)`,
 };
 
+const style = {
+  WIDTH: '45rem',
+  LEFT: '50%',
+  TRANSFORM: 'translateX(-50%)',
+};
+
 export const defaultTheme: DefaultTheme = {
   color,
   device,
+  style,
 };
 
 export const darkTheme: DefaultTheme = {
+  ...defaultTheme,
   color: {
     ...color,
     ...darkColor,
   },
-  device,
 };
 
 export type ColorTypes = typeof color;
 export type DeviceTypes = typeof device;
+export type StyleTypes = typeof style;

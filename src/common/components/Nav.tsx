@@ -41,9 +41,15 @@ interface StyleProps {
 }
 
 const StNav = styled.nav<StyleProps>`
-  position: sticky;
+  @media ${({ theme }) => theme.device.PC} {
+    left: ${({ theme }) => theme.style.LEFT};
+    transform: ${({ theme }) => theme.style.TRANSFORM};
+
+    width: ${({ theme }) => theme.style.WIDTH};
+  }
+
+  position: fixed;
   bottom: 0;
-  left: 0;
 
   display: flex;
   justify-content: space-between;
@@ -54,7 +60,6 @@ const StNav = styled.nav<StyleProps>`
   padding: 0.5rem 2.5rem 1.7rem 2.5rem;
   background-color: ${(props) =>
     props.pathname === '/answer' ? 'transparent' : props.theme.color.BG};
-
   border-top: ${(props) =>
     props.pathname === '/answer' ? 'none' : `1px solid ${props.theme.color.SUB_4}`};
 

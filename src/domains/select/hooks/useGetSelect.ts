@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { useAppSelector } from 'app/config/hooks';
+
 import instance from 'app/instance';
+import { useAppSelector } from 'app/config/hooks';
 import { SelectItemProps } from 'lib/constants/types';
 
 const CONTENT_SIZE = 5;

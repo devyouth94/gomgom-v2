@@ -4,7 +4,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from 'styled-components';
 
 import { useAppSelector } from 'app/config/hooks';
-import Container from 'common/components/Container';
 import Router from 'router/Router';
 import GlobalStyles from 'styles/GlobalStyles';
 import { darkTheme, defaultTheme } from 'styles/theme';
@@ -33,9 +32,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme === 'dark' ? darkTheme : defaultTheme}>
         <GlobalStyles />
-        <Container>
-          <Router />
-        </Container>
+        <Router />
       </ThemeProvider>
 
       <ReactQueryDevtools />

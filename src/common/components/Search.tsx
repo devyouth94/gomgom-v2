@@ -32,64 +32,69 @@ const Search = ({ text, query }: Props) => {
   };
 
   return (
-    <S.Container>
-      <S.Form onSubmit={handleOnSubmit}>
+    <StContainer>
+      <StForm onSubmit={handleOnSubmit}>
         <input value={searchWord} onChange={handleOnChange} maxLength={10} placeholder={text} />
         <button type="submit">
           <IconSearch />
         </button>
-      </S.Form>
+      </StForm>
 
-      <S.Cancel onClick={handleCancel}>{query ? '초기화' : '취소'}</S.Cancel>
-    </S.Container>
+      <StCancel onClick={handleCancel}>{query ? '초기화' : '취소'}</StCancel>
+    </StContainer>
   );
 };
 
 export default Search;
 
-const S = {
-  Container: styled.section`
-    position: sticky;
-    top: 6.4rem;
+const StContainer = styled.section`
+  @media ${({ theme }) => theme.device.PC} {
+    left: ${({ theme }) => theme.style.LEFT};
+    transform: ${({ theme }) => theme.style.TRANSFORM};
 
-    display: grid;
-    grid-template-columns: auto 6rem;
-    align-items: center;
+    width: ${({ theme }) => theme.style.WIDTH};
+  }
 
+  position: fixed;
+  top: 6.4rem;
+
+  display: grid;
+  grid-template-columns: auto 6rem;
+  align-items: center;
+
+  width: 100%;
+  height: 6.4rem;
+  padding: 0 2rem;
+  background-color: ${({ theme }) => theme.color.BG};
+
+  z-index: 9;
+`;
+
+const StForm = styled.form`
+  position: relative;
+  width: 100%;
+
+  input {
     width: 100%;
-    height: 6.4rem;
-    padding: 0 2rem;
-    background-color: ${({ theme }) => theme.color.BG};
+    height: 4rem;
+    padding: 0 1.5rem;
+    background-color: ${({ theme }) => theme.color.WHITE};
 
-    z-index: 9;
-  `,
+    border: none;
+    border-radius: 2rem;
 
-  Form: styled.form`
-    position: relative;
-    width: 100%;
-
-    input {
-      width: 100%;
-      height: 4rem;
-      padding: 0 1.5rem;
-      background-color: ${({ theme }) => theme.color.WHITE};
-
-      border: none;
-      border-radius: 2rem;
-
-      &:focus {
-        outline: none;
-      }
+    &:focus {
+      outline: none;
     }
+  }
 
-    button {
-      position: absolute;
-      top: 0.8rem;
-      right: 0.8rem;
-    }
-  `,
+  button {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+`;
 
-  Cancel: styled.button`
-    ${FONT_M};
-  `,
-};
+const StCancel = styled.button`
+  ${FONT_M};
+`;

@@ -23,18 +23,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    @media ${({ theme }) => theme.device.PC} {
-      width: 450px;
-      margin: 0 auto;
-    }
-
-    position: relative;
-  
-    width: 100%;
-    min-height: calc(var(--vh, 1vh) * 100);
-    height: 100%;
     box-sizing: border-box;
-    background-color: ${({ theme }) => theme.color.BG};
 
     font-size: 1.6rem;
     font-family: 'Noto Sans KR', sans-serif;

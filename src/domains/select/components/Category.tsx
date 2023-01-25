@@ -1,9 +1,10 @@
+import styled from 'styled-components';
+
 import { useAppDispatch, useAppSelector } from 'app/config/hooks';
 import { changeSelected } from 'app/module/selectSlice';
 import useDropdown from 'domains/select/hooks/useDropdown';
 import { CATEGORY_ARR, FILTER_ARR } from 'lib/constants/arr';
 import { IconDropdown } from 'static/Icons/Icons';
-import styled from 'styled-components';
 import { FONT_M } from 'styles/textStyles';
 
 interface Props {
@@ -66,8 +67,15 @@ const Category = ({ length }: Props) => {
 export default Category;
 
 const StContainer = styled.section<{ length: number }>`
-  position: sticky;
-  top: 6.4rem;
+  @media ${({ theme }) => theme.device.PC} {
+    left: ${({ theme }) => theme.style.LEFT};
+    transform: ${({ theme }) => theme.style.TRANSFORM};
+
+    width: ${({ theme }) => theme.style.WIDTH};
+  }
+
+  position: fixed;
+  top: 12.8rem;
 
   display: flex;
   align-items: flex-start;
@@ -77,7 +85,6 @@ const StContainer = styled.section<{ length: number }>`
   height: 4.2rem;
   padding: 0.4rem 2rem 0 2rem;
   background-color: ${({ theme }) => theme.color.BG};
-
   border-bottom: ${(props) => (props.length ? null : `1px solid ${props.theme.color.SUB_4}`)};
 
   z-index: 9;
@@ -96,6 +103,10 @@ const StMenu = styled.div`
 `;
 
 const StDown = styled.div<{ isOpen: boolean }>`
+  @media ${({ theme }) => theme.device.PC} {
+    top: 3rem;
+  }
+
   position: fixed;
   top: 16rem;
 
@@ -103,7 +114,6 @@ const StDown = styled.div<{ isOpen: boolean }>`
   flex-direction: column;
 
   background-color: #fff;
-
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
   border-radius: 1rem;
 

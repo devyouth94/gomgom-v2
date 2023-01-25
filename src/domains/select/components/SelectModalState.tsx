@@ -1,6 +1,7 @@
-import { useAppSelector } from 'app/config/hooks';
 import SignInModal from 'common/modal/SignInModal';
-import WriteModal from './WriteModal';
+import WriteModal from 'domains/select/components/WriteModal';
+
+import { useAppSelector } from 'app/config/hooks';
 
 const SelectModalState = () => {
   const { modalType } = useAppSelector((state) => state.modal);
