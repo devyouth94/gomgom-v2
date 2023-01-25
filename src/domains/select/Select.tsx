@@ -16,6 +16,7 @@ import useIntersect from 'common/hooks/useIntersect';
 import useGetSelect from 'domains/select/hooks/useGetSelect';
 import Logo from 'static/images/Logo';
 import { FONT_M } from 'styles/textStyles';
+import ScrollTopButton from 'common/elements/ScrollTopButton';
 
 const Select = () => {
   const { pathname } = useLocation();
@@ -45,7 +46,7 @@ const Select = () => {
 
       <StMain>
         {status === 'success' && !contents.length && <StNotResult>투표가 없습니다.</StNotResult>}
-        {query && <StQueryResult>{query}의 검색 결과</StQueryResult>}
+        {query && <StQueryResult>{`'${query}'의 검색 결과`}</StQueryResult>}
         {contents.map((content) => (
           <SelectItem key={content.selectKey} item={content} pathname={pathname} />
         ))}
@@ -53,6 +54,8 @@ const Select = () => {
       </StMain>
 
       <WriteButton />
+
+      <ScrollTopButton />
 
       <Nav />
     </>
@@ -72,7 +75,7 @@ const StMain = styled(Main)`
   gap: 2.4rem;
 
   padding-top: 17.6rem;
-  padding-bottom: 9.6rem;
+  padding-bottom: 7.2rem;
 
   > span {
     ${FONT_M};
