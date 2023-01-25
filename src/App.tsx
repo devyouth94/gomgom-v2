@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from 'styled-components';
 
-import { store } from 'app/config/store';
+import { useAppSelector } from 'app/config/hooks';
+import Container from 'common/components/Container';
 import Router from 'router/Router';
-import useThemeStore from 'stores/useThemeStore';
 import GlobalStyles from 'styles/GlobalStyles';
 import { darkTheme, defaultTheme } from 'styles/theme';
 
@@ -15,7 +14,7 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  const theme = useThemeStore((state) => state.theme);
+  const { theme } = useAppSelector((state) => state.theme);
 
   const [vh, setVh] = useState(window.innerHeight * 0.01);
   const screenSize = useCallback(() => {
@@ -32,12 +31,12 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <ThemeProvider theme={theme === 'dark' ? darkTheme : defaultTheme}>
-          <GlobalStyles />
+      <ThemeProvider theme={theme === 'dark' ? darkTheme : defaultTheme}>
+        <GlobalStyles />
+        <Container>
           <Router />
-        </ThemeProvider>
-      </Provider>
+        </Container>
+      </ThemeProvider>
 
       <ReactQueryDevtools />
     </QueryClientProvider>
