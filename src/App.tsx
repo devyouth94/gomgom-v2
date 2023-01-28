@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from 'styled-components';
 
@@ -7,12 +7,10 @@ import { useAppSelector } from 'app/config/hooks';
 import Router from 'router/Router';
 import GlobalStyles from 'styles/GlobalStyles';
 import { darkTheme, defaultTheme } from 'styles/theme';
-
-const queryClient = new QueryClient({
-  defaultOptions: { queries: { refetchOnWindowFocus: false } },
-});
+import useAppQueryClient from 'common/hooks/useAppQueryClient';
 
 const App = () => {
+  const queryClient = useAppQueryClient();
   const { theme } = useAppSelector((state) => state.theme);
 
   const [vh, setVh] = useState(window.innerHeight * 0.01);
