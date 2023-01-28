@@ -1,36 +1,16 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { FONT_BOLD, FONT_EXTRABOLD } from 'styles/textStyles';
+
+import { FONT_EXTRABOLD } from 'styles/textStyles';
 
 interface Props extends ButtonProps {
   children: string | React.ReactNode;
   onClick: ((event: any) => Promise<void>) | (() => void);
 }
 
-const GlobalButton = ({
-  children,
-  onClick,
-  h,
-  bgc,
-  borderR,
-  fw,
-  fs,
-  font,
-  position,
-  bottom,
-}: Props) => {
+const GlobalButton = ({ children, onClick, bgc, font, position, bottom }: Props) => {
   return (
-    <StButton
-      onClick={onClick}
-      h={h}
-      bgc={bgc}
-      borderR={borderR}
-      fw={fw}
-      fs={fs}
-      font={font}
-      position={position}
-      bottom={bottom}
-    >
+    <StButton onClick={onClick} bgc={bgc} font={font} position={position} bottom={bottom}>
       {children}
     </StButton>
   );
@@ -39,11 +19,7 @@ const GlobalButton = ({
 export default GlobalButton;
 
 interface ButtonProps {
-  h?: string;
   bgc?: string;
-  borderR?: string;
-  fw?: string;
-  fs?: string;
   font?: string;
   position?: string;
   bottom?: string;
@@ -63,11 +39,11 @@ const StButton = styled.button<ButtonProps>`
   gap: 0.4rem;
 
   width: 100%;
-  height: ${(props) => props.h || '5.6rem'};
+  height: 5.6rem;
   background-color: ${(props) => props.bgc || props.theme.color.MAIN_2};
-  border-radius: ${(props) => props.borderR || '2rem'};
+  border-radius: 2rem;
 
-  ${(props) => (props.fw === 'bold' ? FONT_BOLD : FONT_EXTRABOLD)}
-  font-size: ${(props) => props.fs || '1.6rem'};
+  ${FONT_EXTRABOLD};
+  font-size: 1.6rem;
   color: ${(props) => props.font || props.theme.color.WHITE};
 `;

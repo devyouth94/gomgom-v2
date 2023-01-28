@@ -21,3 +21,25 @@ export interface DetailItemProps {
   title: string;
   userKey: number;
 }
+
+export interface VoteResultProps {
+  msg: string;
+  ok: boolean;
+  result: {
+    [x: number]: number;
+    total: number;
+    isVote?: number;
+  };
+}
+
+export interface VoteReturnData {
+  msg: string;
+  ok: boolean;
+  vote: {
+    [x: number]: number;
+  };
+  result: {
+    total: number;
+    isVote: number;
+  };
+}
