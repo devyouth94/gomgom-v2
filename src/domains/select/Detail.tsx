@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from 'common/components/Header';
@@ -7,14 +7,16 @@ import DetailInfo from 'domains/select/components/DetailInfo';
 import DetailVote from 'domains/select/components/DetailVote';
 import DetailModalState from 'domains/select/components/DetailModalState';
 
+import { useAppDispatch } from 'app/config/hooks';
+import { toggleModal } from 'app/module/modalSlice';
 import useGetDetail from 'domains/select/hooks/useGetDetail';
 import { userStorage } from 'lib/utils/storage';
 import { IconBack, IconDelete } from 'static/Icons/Icons';
 
 const Detail = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { selectKey } = useParams();
-  const { state } = useLocation();
 
   const { data: info, status: infoStatus } = useGetDetail(Number(selectKey));
 
@@ -25,7 +27,9 @@ const Detail = () => {
       <Header>
         <IconBack handleClick={() => navigate(-1)} />
         <div />
-        {userStorage.getUserKey() === info?.result.userKey && <IconDelete />}
+        {userStorage.getUserKey() === info?.result.userKey && (
+          <IconDelete handleClick={() => dispatch(toggleModal({ type: 'delete' }))} />
+        )}
       </Header>
 
       <StMain>

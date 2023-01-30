@@ -43,3 +43,9 @@ export interface VoteReturnData {
     isVote: number;
   };
 }
+
+export interface LocationState {
+  state: {
+    now: string;
+  };
+}
