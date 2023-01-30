@@ -26,11 +26,9 @@ const postSelect = async (item: PostSelectProps) => {
     }
   }
 
-  const { data } = await instance.post('/select', formData, {
+  return await instance.post('/select', formData, {
     headers: { 'Content-Type': 'multipart/form-data' },
   });
-
-  return data.result;
 };
 
 const usePostSelect = () => {
