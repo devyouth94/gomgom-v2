@@ -69,7 +69,7 @@ const getSelectBySearch = async ({ query, pageParam }: { query: string; pagePara
   return {
     result: data.result,
     nextPage: pageParam + 1,
-    isLastPage: data.result.length < CONTENT_SIZE,
+    isLastPage: true,
   };
 };
 
@@ -77,12 +77,8 @@ const useGetSelect = () => {
   const selected = useAppSelector((state) => state.select.selected);
 
   if (selected.query) {
-    return useInfiniteQuery(
-      ['search', selected.query],
-      ({ pageParam = 1 }) => getSelectBySearch({ query: selected.query, pageParam }),
-      {
-        getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),
-      },
+    return useInfiniteQuery(['search', selected.query], ({ pageParam = 1 }) =>
+      getSelectBySearch({ query: selected.query, pageParam }),
     );
   }
 
