@@ -2,16 +2,16 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { useAppDispatch } from 'app/config/hooks';
-import { changeSelected } from 'app/module/selectSlice';
 import { IconSearch } from 'static/Icons/Icons';
 import { FONT_M } from 'styles/textStyles';
 
 interface Props {
   text: string;
   query: string;
+  changeDispatch: any;
 }
 
-const Search = ({ text, query }: Props) => {
+const Search = ({ text, query, changeDispatch }: Props) => {
   const dispatch = useAppDispatch();
 
   const [searchWord, setSearchWord] = useState('');
@@ -22,12 +22,12 @@ const Search = ({ text, query }: Props) => {
 
   const handleCancel = () => {
     if (!query) return;
-    dispatch(changeSelected({ value: 'query', item: '' }));
+    dispatch(changeDispatch({ value: 'query', item: '' }));
   };
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(changeSelected({ value: 'query', item: searchWord }));
+    dispatch(changeDispatch({ value: 'query', item: searchWord }));
     setSearchWord('');
   };
 

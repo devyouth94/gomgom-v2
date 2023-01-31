@@ -10,6 +10,8 @@ import Select from 'domains/select/Select';
 import Detail from 'domains/select/Detail';
 import Write from 'domains/select/Write';
 
+import Room from 'domains/room/Room';
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -23,6 +25,8 @@ const Router = () => {
         <Route path="/select" element={<Select />} />
         <Route path="/select/:selectKey" element={<Detail />} />
         <Route path="/select/write" element={<Write />} />
+
+        <Route path="/room" element={<Room />} />
       </Routes>
     </BrowserRouter>
   );

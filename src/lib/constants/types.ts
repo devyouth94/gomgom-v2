@@ -44,6 +44,16 @@ export interface VoteReturnData {
   };
 }
 
+export interface RoomItemProps {
+  currentPeople: number;
+  hashTag: string[];
+  host: string;
+  max: number;
+  roomKey: number;
+  title: string;
+  userKey: number;
+}
+
 export interface LocationState {
   state: {
     now: string;
