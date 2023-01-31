@@ -77,7 +77,7 @@ const useGetSelect = () => {
   const selected = useAppSelector((state) => state.select.selected);
 
   if (selected.query) {
-    return useInfiniteQuery(['search', selected.query], ({ pageParam = 1 }) =>
+    return useInfiniteQuery(['search_select', selected.query], ({ pageParam = 1 }) =>
       getSelectBySearch({ query: selected.query, pageParam }),
     );
   }

@@ -9,14 +9,15 @@ import Main from 'common/components/Main';
 import SelectItem from 'common/components/SelectItem';
 import Nav from 'common/components/Nav';
 import WriteButton from 'common/elements/WriteButton';
+import ScrollTopButton from 'common/elements/ScrollTopButton';
 import SelectModalState from 'domains/select/components/SelectModalState';
 
 import { useAppSelector } from 'app/config/hooks';
+import { changeSelected } from 'app/module/selectSlice';
 import useIntersect from 'common/hooks/useIntersect';
 import useGetSelect from 'domains/select/hooks/useGetSelect';
 import Logo from 'static/images/Logo';
 import { FONT_M } from 'styles/textStyles';
-import ScrollTopButton from 'common/elements/ScrollTopButton';
 
 const Select = () => {
   const { pathname } = useLocation();
@@ -40,7 +41,7 @@ const Select = () => {
         <Logo handleClick={() => window.location.reload()} />
       </StHeader>
 
-      <Search text="고민 투표/제목 검색(10자 이내)" query={query} />
+      <Search text="고민 투표/제목 검색(10자 이내)" query={query} changeDispatch={changeSelected} />
 
       <Category length={contents.length} />
 
