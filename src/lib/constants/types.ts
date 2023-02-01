@@ -54,6 +54,10 @@ export interface RoomItemProps {
   userKey: number;
 }
 
+export interface RoomInfoProps extends RoomItemProps {
+  point: number;
+}
+
 export interface LocationState {
   state: {
     now: string;

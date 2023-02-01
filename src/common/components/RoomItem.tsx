@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { UseMutateFunction } from '@tanstack/react-query';
 
-import { RoomItemProps } from 'lib/constants/types';
+import type { RoomInfoProps, RoomItemProps } from 'lib/constants/types';
 import { IconAnnounce, IconAnnounced, IconPerson } from 'static/Icons/Icons';
 import { FONT_BOLD, FONT_M, FONT_S } from 'styles/textStyles';
 
 interface Props {
   room: RoomItemProps;
   entered?: (number | undefined)[];
-  handleJoin: any;
+  handleJoin: UseMutateFunction<RoomInfoProps, unknown, number, unknown>;
 }
 
 const RoomItem = ({ room, entered, handleJoin }: Props) => {

@@ -7,17 +7,21 @@ import Main from 'common/components/Main';
 import RoomItem from 'common/components/RoomItem';
 import WriteButton from 'common/elements/WriteButton';
 import Nav from 'common/components/Nav';
+import RoomModalState from 'domains/room/components/RoomModalState';
+import JoinModal from 'domains/room/components/JoinModal';
 
 import { useAppSelector } from 'app/config/hooks';
 import { changeRoomQuery } from 'app/module/roomSlice';
 import useIntersect from 'common/hooks/useIntersect';
 import useGetRoom from 'domains/room/hooks/useGetRoom';
+import usePostRoom from 'domains/room/hooks/usePostRoom';
 import Logo from 'static/images/Logo';
 import { FONT_M } from 'styles/textStyles';
 
 const Room = () => {
   const { query } = useAppSelector((state) => state.room);
 
+  const { data: roomInfo, isSuccess, mutate: postRoomInfo } = usePostRoom();
   const { data, status, hasNextPage, isFetching, fetchNextPage } = useGetRoom();
   const contents = useMemo(() => (data ? data.pages.flatMap((page) => page.result) : []), [data]);
   const entered = useMemo(() => (data ? data.pages.flatMap((page) => page.entered) : []), [data]);
@@ -31,6 +35,10 @@ const Room = () => {
 
   return (
     <>
+      <RoomModalState />
+
+      {isSuccess && <JoinModal roomInfo={roomInfo} entered={entered} />}
+
       <StHeader>
         <Logo handleClick={() => window.location.reload()} />
       </StHeader>
@@ -45,7 +53,12 @@ const Room = () => {
         {status === 'success' && !contents.length && <StNotResult>투표가 없습니다.</StNotResult>}
         {query && <StQueryResult>{`'${query}'의 검색 결과`}</StQueryResult>}
         {contents.map((content) => (
-          <RoomItem key={content.roomKey} room={content} entered={entered} handleJoin />
+          <RoomItem
+            key={content.roomKey}
+            room={content}
+            entered={entered}
+            handleJoin={postRoomInfo}
+          />
         ))}
         <div ref={ref} />
       </StMain>
