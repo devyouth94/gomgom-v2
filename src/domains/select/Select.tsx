@@ -18,11 +18,13 @@ import useIntersect from 'common/hooks/useIntersect';
 import useGetSelect from 'domains/select/hooks/useGetSelect';
 import Logo from 'static/images/Logo';
 import { FONT_M } from 'styles/textStyles';
+import useScrollHeight from 'common/hooks/useScrollHeight';
 
 const Select = () => {
   const { pathname } = useLocation();
   const { query } = useAppSelector((state) => state.select.selected);
 
+  const isScroll = useScrollHeight();
   const { data, status, hasNextPage, isFetching, fetchNextPage } = useGetSelect();
   const contents = useMemo(() => (data ? data.pages.flatMap((page) => page.result) : []), [data]);
 
@@ -56,7 +58,7 @@ const Select = () => {
 
       <WriteButton />
 
-      <ScrollTopButton />
+      {isScroll && <ScrollTopButton />}
 
       <Nav />
     </>
