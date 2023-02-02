@@ -58,6 +58,10 @@ export interface RoomInfoProps extends RoomItemProps {
   point: number;
 }
 
+export interface PostChatItemProps extends RoomItemProps {
+  roomPoint: number;
+}
+
 export interface LocationState {
   state: {
     now: string;

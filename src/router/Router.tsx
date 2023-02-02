@@ -11,6 +11,7 @@ import Detail from 'domains/select/Detail';
 import Write from 'domains/select/Write';
 
 import Room from 'domains/room/Room';
+import Create from 'domains/room/Create';
 
 const Router = () => {
   return (
@@ -27,6 +28,7 @@ const Router = () => {
         <Route path="/select/write" element={<Write />} />
 
         <Route path="/room" element={<Room />} />
+        <Route path="/room/create" element={<Create />} />
       </Routes>
     </BrowserRouter>
   );
