@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react';
-import useDebounce from './useDebounce';
+import { debounce } from 'lodash';
 
 const useScrollHeight = () => {
   const [isScroll, setIsScroll] = useState(false);
 
-  const scrollEvent = useDebounce(() => {
-    const myHeight = 0;
+  const handleScroll = debounce((event) => {
+    const myHeight = event.srcElement.scrollingElement.scrollTop;
     setIsScroll(myHeight > 200);
-  });
+  }, 500);
 
   useEffect(() => {
-    window.addEventListener('scroll', scrollEvent);
+    window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', scrollEvent);
-  }, [scrollEvent]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
 
   return isScroll;
 };
