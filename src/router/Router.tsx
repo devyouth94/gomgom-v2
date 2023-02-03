@@ -13,6 +13,8 @@ import Write from 'domains/select/Write';
 import Room from 'domains/room/Room';
 import Create from 'domains/room/Create';
 
+import Answer from 'domains/answer/Answer';
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -29,6 +31,8 @@ const Router = () => {
 
         <Route path="/room" element={<Room />} />
         <Route path="/room/create" element={<Create />} />
+
+        <Route path="/answer" element={<Answer />} />
       </Routes>
     </BrowserRouter>
   );
