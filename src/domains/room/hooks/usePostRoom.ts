@@ -22,7 +22,7 @@ const usePostRoom = () => {
       if (pathname === '/room') {
         dispatch(toggleModal({ type: 'join' }));
       } else {
-        navigate(`/room/${data.roomKey}`, { state: { now: pathname } });
+        navigate(`/room/${data.roomKey}`, { state: { now: pathname }, replace: true });
       }
     },
   });
