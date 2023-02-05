@@ -67,3 +67,7 @@ export interface LocationState {
     now: string;
   };
 }
+
+export interface MyInfo {
+  point: number;
+}

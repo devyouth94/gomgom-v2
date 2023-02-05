@@ -6,11 +6,19 @@ import { FONT_EXTRABOLD } from 'styles/textStyles';
 interface Props extends ButtonProps {
   children: string | React.ReactNode;
   onClick: ((event: any) => Promise<void>) | (() => void);
+  className?: string;
 }
 
-const GlobalButton = ({ children, onClick, bgc, font, position, bottom }: Props) => {
+const GlobalButton = ({ children, onClick, className, bgc, font, position, bottom }: Props) => {
   return (
-    <StButton onClick={onClick} bgc={bgc} font={font} position={position} bottom={bottom}>
+    <StButton
+      onClick={onClick}
+      className={className}
+      bgc={bgc}
+      font={font}
+      position={position}
+      bottom={bottom}
+    >
       {children}
     </StButton>
   );

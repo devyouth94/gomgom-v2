@@ -14,6 +14,7 @@ import Room from 'domains/room/Room';
 import Create from 'domains/room/Create';
 
 import Answer from 'domains/answer/Answer';
+import MyPage from 'domains/mypage/MyPage';
 
 const Router = () => {
   return (
@@ -33,6 +34,8 @@ const Router = () => {
         <Route path="/room/create" element={<Create />} />
 
         <Route path="/answer" element={<Answer />} />
+
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );

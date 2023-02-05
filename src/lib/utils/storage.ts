@@ -20,6 +20,14 @@ const userStorage = {
   getUserKey: () => {
     return Number(localStorage.getItem('userKey'));
   },
+
+  getNickname: () => {
+    return localStorage.getItem('nickname') || '';
+  },
+
+  setNickname: (nickname: string) => {
+    localStorage.setItem('nickname', nickname);
+  },
 };
 
 Object.freeze(userStorage);
