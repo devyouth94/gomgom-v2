@@ -14,7 +14,10 @@ import Room from 'domains/room/Room';
 import Create from 'domains/room/Create';
 
 import Answer from 'domains/answer/Answer';
+
 import MyPage from 'domains/mypage/MyPage';
+import MySelectContents from 'domains/mypage/MySelectContents';
+import MyRoomContents from 'domains/mypage/MyRoomContents';
 
 const Router = () => {
   return (
@@ -36,6 +39,10 @@ const Router = () => {
         <Route path="/answer" element={<Answer />} />
 
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/mypage/postvoted" element={<MySelectContents />} />
+        <Route path="/mypage/voted" element={<MySelectContents />} />
+        <Route path="/mypage/maderoom" element={<MyRoomContents />} />
+        <Route path="/mypage/operatingroom" element={<MyRoomContents />} />
       </Routes>
     </BrowserRouter>
   );
