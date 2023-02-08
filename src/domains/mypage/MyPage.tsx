@@ -5,7 +5,11 @@ import Main from 'common/components/Main';
 import UserContainer from 'domains/mypage/components/UserContainer';
 import GradeContainer from 'domains/mypage/components/GradeContainer';
 import LoginContainer from 'domains/mypage/components/LoginContainer';
+import GradeInfo from 'domains/mypage/components/GradeInfo';
+import MyService from 'domains/mypage/components/MyService';
+import Logout from 'domains/mypage/components/Logout';
 import Nav from 'common/components/Nav';
+import MypageModalState from 'domains/mypage/components/MyPageModalState';
 
 import useGetMyInfo from 'domains/mypage/hooks/useGetMyInfo';
 import { userStorage } from 'lib/utils/storage';
@@ -16,11 +20,17 @@ const MyPage = () => {
 
   const [selectedGrade, setSelectedGrade] = useState(0);
   const handleSelectGrade = (idx: number) => {
-    setSelectedGrade(idx + 1);
+    if (idx + 1 === selectedGrade) {
+      setSelectedGrade(0);
+    } else {
+      setSelectedGrade(idx + 1);
+    }
   };
 
   return (
     <>
+      <MypageModalState />
+
       <StMain>
         <StHeaderTop>
           {userStorage.getToken('access') ? (
@@ -45,8 +55,16 @@ const MyPage = () => {
           )}
         </StHeaderBottom>
 
-        <Nav />
+        {userStorage.getToken('access') && selectedGrade !== 0 && (
+          <GradeInfo selectedGrade={selectedGrade} />
+        )}
+
+        <MyService />
+
+        {userStorage.getToken('access') && <Logout />}
       </StMain>
+
+      <Nav />
     </>
   );
 };

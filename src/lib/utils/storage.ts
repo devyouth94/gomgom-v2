@@ -28,6 +28,10 @@ const userStorage = {
   setNickname: (nickname: string) => {
     localStorage.setItem('nickname', nickname);
   },
+
+  clearStorage: () => {
+    localStorage.clear();
+  },
 };
 
 Object.freeze(userStorage);

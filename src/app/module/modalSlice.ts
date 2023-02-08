@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-type ModalType = 'basic' | 'signup' | 'signin' | 'write' | 'upload' | 'delete' | 'join';
+type ModalType = 'basic' | 'signup' | 'signin' | 'write' | 'upload' | 'delete' | 'join' | 'logout';
 
 interface ModalState {
   modalType: {
@@ -13,6 +13,7 @@ interface ModalState {
     upload: boolean;
     delete: boolean;
     join: boolean;
+    logout: boolean;
   };
   message: string;
 }
@@ -26,6 +27,7 @@ const initialState: ModalState = {
     upload: false,
     delete: false,
     join: false,
+    logout: false,
   },
   message: '',
 };
