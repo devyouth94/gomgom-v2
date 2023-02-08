@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import StartDisplay from 'domains/answer/components/StartDisplay';
 import Header from 'common/components/Header';
 import Main from 'common/components/Main';
 import GlobalButton from 'common/elements/GlobalButton';
@@ -12,7 +13,6 @@ import { ReactComponent as ImageBubble2 } from 'static/images/speach bubble2.svg
 import { ReactComponent as ImageCharacter1 } from 'static/images/Character1.svg';
 import { ReactComponent as ImageCharacter2 } from 'static/images/Character2.svg';
 import { FONT_BOLD } from 'styles/textStyles';
-import StartDisplay from './components/StartDisplay';
 
 const Answer = () => {
   const { think, answer, clickAnswerHandler } = useAnswerState();
