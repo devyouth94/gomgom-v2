@@ -14,10 +14,10 @@ interface Props {
 }
 
 const UserContainer = ({ point = 0 }: Props) => {
-  const { mutate: putNickname } = usePutMyNickname();
-
   const [isEdit, setIsEdit] = useState(false);
   const [editNickname, setEditNickname] = useState('');
+
+  const { mutate: putNickname } = usePutMyNickname(setIsEdit);
 
   const handleEdit = () => {
     setIsEdit((prev) => !prev);
@@ -30,7 +30,6 @@ const UserContainer = ({ point = 0 }: Props) => {
 
   const handleSubmitNickname = () => {
     putNickname(editNickname);
-    setIsEdit(false);
   };
 
   return (

@@ -12,10 +12,11 @@ const putNickname = async (editNickname: string) => {
   return data;
 };
 
-const usePutMyNickname = () => {
+const usePutMyNickname = (setState: React.Dispatch<React.SetStateAction<boolean>>) => {
   return useMutation(putNickname, {
     onSuccess: (data) => {
       userStorage.setNickname(data.nickname);
+      setState(false);
     },
   });
 };
