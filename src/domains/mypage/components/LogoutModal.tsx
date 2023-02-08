@@ -14,6 +14,7 @@ const LogoutModal = () => {
 
   const handleLogout = () => {
     userStorage.clearStorage();
+    window.location.reload();
     dispatch(toggleModal({ type: 'logout' }));
   };
 
