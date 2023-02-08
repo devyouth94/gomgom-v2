@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
+import { useAppDispatch } from 'app/config/hooks';
+import { toggleModal } from 'app/module/modalSlice';
 import { colorFromPoint, remainedPoint } from 'lib/utils/pointCalculation';
 import { FONT_BOLD, FONT_M } from 'styles/textStyles';
 import { IconInfomation } from 'static/Icons/Icons';
-import { useAppDispatch } from 'app/config/hooks';
-import { toggleModal } from 'app/module/modalSlice';
 
 interface Props {
   point?: number;
   selectedGrade: number;
   handleSelectGrade: (idx: number) => void;
 }
+
+const COLOR_ARR = ['White', 'Yellow', 'Green', 'Blue', 'Purple'];
 
 const GradeContainer = ({ point = 0, selectedGrade, handleSelectGrade }: Props) => {
   const dispatch = useAppDispatch();
@@ -41,7 +43,7 @@ const GradeContainer = ({ point = 0, selectedGrade, handleSelectGrade }: Props) 
         </div>
 
         <div>
-          {['White', 'Yellow', 'Green', 'Blue', 'Purple'].map((color, idx) => (
+          {COLOR_ARR.map((color, idx) => (
             <span key={idx} onClick={() => handleSelectGrade(idx)}>
               {color}
             </span>

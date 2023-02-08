@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { FONT_M } from 'styles/textStyles';
 
 interface Props {

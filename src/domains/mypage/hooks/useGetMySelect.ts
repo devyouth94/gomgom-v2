@@ -1,4 +1,6 @@
+import { useLocation } from 'react-router-dom';
 import { useInfiniteQuery } from '@tanstack/react-query';
+
 import instance from 'app/instance';
 import type { SelectItemProps } from 'lib/constants/types';
 
@@ -31,7 +33,9 @@ const getMyVoted = async ({ pageParam = 1 }) => {
   };
 };
 
-const useGetMySelect = (pathname: string) => {
+const useGetMySelect = () => {
+  const { pathname } = useLocation();
+
   if (pathname === '/mypage/postvoted') {
     return useInfiniteQuery(['my/postvoted'], getMyPostVoted, {
       getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),

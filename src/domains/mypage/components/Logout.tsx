@@ -7,9 +7,13 @@ import { FONT_BOLD, FONT_S } from 'styles/textStyles';
 const Logout = () => {
   const dispatch = useAppDispatch();
 
+  const handleClickLogout = () => {
+    dispatch(toggleModal({ type: 'logout' }));
+  };
+
   return (
     <StLogout>
-      <span onClick={() => dispatch(toggleModal({ type: 'logout' }))}>로그아웃</span>
+      <span onClick={handleClickLogout}>로그아웃</span>
     </StLogout>
   );
 };

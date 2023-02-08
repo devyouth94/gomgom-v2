@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useAppDispatch } from 'app/config/hooks';
 import { toggleModal } from 'app/module/modalSlice';
 import { userStorage } from 'lib/utils/storage';
-import { IconChatting, IconEdit, IconNext, IconPerson, IconVoteTab } from 'static/Icons/Icons';
+import { IconChatting, IconEdit, IconNext, IconProfileTab, IconVoteTab } from 'static/Icons/Icons';
 import { FONT_BOLD } from 'styles/textStyles';
 
 export const QNA_LINK = 'https://forms.gle/daCzxS5nhRZXzrUr9';
@@ -70,7 +70,7 @@ const MyService = () => {
         </a>
 
         <div onClick={handleClickUserDelete}>
-          <IconPerson />
+          <IconProfileTab />
           <span>회원 탈퇴</span>
           <IconNext />
         </div>

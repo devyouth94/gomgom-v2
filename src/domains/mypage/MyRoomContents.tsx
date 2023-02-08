@@ -7,7 +7,7 @@ import Main from 'common/components/Main';
 import RoomItem from 'common/components/RoomItem';
 
 import useIntersect from 'common/hooks/useIntersect';
-import useGetMyRoom from './hooks/useGetMyRoom';
+import useGetMyRoom from 'domains/mypage/hooks/useGetMyRoom';
 import { IconBack } from 'static/Icons/Icons';
 import { FONT_M } from 'styles/textStyles';
 
@@ -23,7 +23,7 @@ const MyRoomContents = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const { data, status, hasNextPage, isFetching, fetchNextPage } = useGetMyRoom(pathname);
+  const { data, status, hasNextPage, isFetching, fetchNextPage } = useGetMyRoom();
   const contents = useMemo(() => (data ? data.pages.flatMap((page) => page.result) : []), [data]);
 
   const ref = useIntersect(async (entry, observer) => {

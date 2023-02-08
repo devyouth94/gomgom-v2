@@ -23,7 +23,7 @@ const MySelectContents = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const { data, status, hasNextPage, isFetching, fetchNextPage } = useGetMySelect(pathname);
+  const { data, status, hasNextPage, isFetching, fetchNextPage } = useGetMySelect();
   const contents = useMemo(() => (data ? data.pages.flatMap((page) => page.result) : []), [data]);
 
   const ref = useIntersect(async (entry, observer) => {

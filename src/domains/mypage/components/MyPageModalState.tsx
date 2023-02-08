@@ -1,12 +1,11 @@
 import BasicModal from 'common/modal/BasicModal';
 import SignInModal from 'common/modal/SignInModal';
-
 import UserDeleteModal from 'domains/mypage/components/UserDeleteModal';
 import LogoutModal from 'domains/mypage/components/LogoutModal';
+import GradeInfoModal from 'domains/mypage/components/GradeInfoModal';
 
 import { useAppDispatch, useAppSelector } from 'app/config/hooks';
 import { toggleModal } from 'app/module/modalSlice';
-import GradeInfoModal from './GradeInfoModal';
 
 const MypageModalState = () => {
   const dispatch = useAppDispatch();

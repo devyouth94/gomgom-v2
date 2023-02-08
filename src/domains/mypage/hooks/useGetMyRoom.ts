@@ -1,4 +1,6 @@
+import { useLocation } from 'react-router-dom';
 import { useInfiniteQuery } from '@tanstack/react-query';
+
 import instance from 'app/instance';
 import type { RoomItemProps } from 'lib/constants/types';
 
@@ -31,7 +33,9 @@ const getMyOperatingroom = async ({ pageParam = 1 }) => {
   };
 };
 
-const useGetMyRoom = (pathname: string) => {
+const useGetMyRoom = () => {
+  const { pathname } = useLocation();
+
   if (pathname === '/mypage/maderoom') {
     return useInfiniteQuery(['my/maderoom'], getMyMaderoom, {
       getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),

@@ -10,12 +10,16 @@ import { FONT_BOLD, FONT_L, FONT_M } from 'styles/textStyles';
 const GradeInfoModal = () => {
   const dispatch = useAppDispatch();
 
+  const handleClickClose = () => {
+    dispatch(toggleModal({ type: 'info' }));
+  };
+
   return (
     <StMain>
       <StHeader>
         <div />
         <h1>등급 선정기준</h1>
-        <IconClose handleClick={() => dispatch(toggleModal({ type: 'info' }))} />
+        <IconClose handleClick={handleClickClose} />
       </StHeader>
 
       <StBody>
