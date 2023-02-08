@@ -6,6 +6,7 @@ import LogoutModal from 'domains/mypage/components/LogoutModal';
 
 import { useAppDispatch, useAppSelector } from 'app/config/hooks';
 import { toggleModal } from 'app/module/modalSlice';
+import GradeInfoModal from './GradeInfoModal';
 
 const MypageModalState = () => {
   const dispatch = useAppDispatch();
@@ -24,6 +25,8 @@ const MypageModalState = () => {
       {modalType.delete && <UserDeleteModal />}
 
       {modalType.logout && <LogoutModal />}
+
+      {modalType.info && <GradeInfoModal />}
     </>
   );
 };

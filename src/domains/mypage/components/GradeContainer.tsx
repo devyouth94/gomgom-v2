@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { colorFromPoint, remainedPoint } from 'lib/utils/pointCalculation';
 import { FONT_BOLD, FONT_M } from 'styles/textStyles';
 import { IconInfomation } from 'static/Icons/Icons';
+import { useAppDispatch } from 'app/config/hooks';
+import { toggleModal } from 'app/module/modalSlice';
 
 interface Props {
   point?: number;
@@ -11,6 +13,8 @@ interface Props {
 }
 
 const GradeContainer = ({ point = 0, selectedGrade, handleSelectGrade }: Props) => {
+  const dispatch = useAppDispatch();
+
   return (
     <>
       <StMyGrade>
@@ -33,7 +37,7 @@ const GradeContainer = ({ point = 0, selectedGrade, handleSelectGrade }: Props) 
       <StGradeInfo selectedGrade={selectedGrade}>
         <div>
           <span>등급 별 달성 조건</span>
-          <IconInfomation />
+          <IconInfomation handleClick={() => dispatch(toggleModal({ type: 'info' }))} />
         </div>
 
         <div>
