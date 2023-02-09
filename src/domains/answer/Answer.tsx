@@ -51,9 +51,9 @@ const Answer = () => {
           )}
         </StContent>
 
-        <GlobalButton onClick={clickAnswerHandler} position="absolute" bottom="9.6rem">
+        <StGlobalButton onClick={clickAnswerHandler}>
           {answer ? '곰곰의 해답 다시 듣기' : '곰곰의 해답 듣기'}
-        </GlobalButton>
+        </StGlobalButton>
       </StMain>
 
       <Nav />
@@ -122,4 +122,9 @@ const StContent = styled.section`
   .center {
     text-align: center;
   }
+`;
+
+const StGlobalButton = styled(GlobalButton)`
+  position: absolute;
+  bottom: 9.6rem;
 `;

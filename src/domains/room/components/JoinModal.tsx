@@ -47,15 +47,13 @@ const JoinModal = ({ roomInfo, entered }: Props) => {
         </StFooter>
       </StBody>
 
-      <GlobalButton
+      <StGlobalButton
         onClick={() => {
           navigate(`/room/${roomInfo.roomKey}`, { state: { now: pathname } });
         }}
-        position="absolute"
-        bottom="2.4rem"
       >
         {entered.includes(roomInfo.roomKey) ? '참여중인 상담방' : '상담방 참여하기'}
-      </GlobalButton>
+      </StGlobalButton>
     </StBackground>
   );
 };
@@ -136,4 +134,9 @@ const StFooter = styled.div`
       ${FONT_BOLD};
     }
   }
+`;
+
+const StGlobalButton = styled(GlobalButton)`
+  position: absolute;
+  bottom: 9.6rem;
 `;

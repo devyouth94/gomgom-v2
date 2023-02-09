@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { FONT_EXTRABOLD } from 'styles/textStyles';
 
@@ -9,16 +9,9 @@ interface Props extends ButtonProps {
   className?: string;
 }
 
-const GlobalButton = ({ children, onClick, className, bgc, font, position, bottom }: Props) => {
+const GlobalButton = ({ children, onClick, className, bgc, font }: Props) => {
   return (
-    <StButton
-      onClick={onClick}
-      className={className}
-      bgc={bgc}
-      font={font}
-      position={position}
-      bottom={bottom}
-    >
+    <StButton onClick={onClick} className={className} bgc={bgc} font={font}>
       {children}
     </StButton>
   );
@@ -29,17 +22,10 @@ export default GlobalButton;
 interface ButtonProps {
   bgc?: string;
   font?: string;
-  position?: string;
-  bottom?: string;
 }
 
 const StButton = styled.button<ButtonProps>`
-  position: ${(props) => props.position || 'relative'};
-  ${(props) =>
-    props.bottom &&
-    css<ButtonProps>`
-      bottom: ${(props) => props.bottom};
-    `}
+  position: relative;
 
   display: flex;
   align-items: center;
