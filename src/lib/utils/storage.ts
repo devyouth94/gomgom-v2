@@ -1,8 +1,11 @@
-interface UserData {
-  accessToken: string;
-  refreshToken: string;
+interface UserData extends TokenData {
   nickname: string;
   userKey: number;
+}
+
+export interface TokenData {
+  accessToken: string;
+  refreshToken: string;
 }
 
 const userStorage = {
@@ -15,6 +18,11 @@ const userStorage = {
 
   getToken: (type: 'access' | 'refresh') => {
     return localStorage.getItem(`${type}Token`);
+  },
+
+  setToken: (data: TokenData) => {
+    localStorage.setItem(`accessToken`, data.accessToken);
+    localStorage.setItem(`refreshToken`, data.refreshToken);
   },
 
   getUserKey: () => {

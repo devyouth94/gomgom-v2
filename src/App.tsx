@@ -3,11 +3,14 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from 'styled-components';
 
-import { useAppSelector } from 'app/config/hooks';
 import Router from 'router/Router';
+
+import { useAppSelector } from 'app/config/hooks';
+import useAppQueryClient from 'common/hooks/useAppQueryClient';
+import { userStorage } from 'lib/utils/storage';
+import { refreshTokenAPI } from 'lib/utils/refreshTokenAPI';
 import GlobalStyles from 'styles/GlobalStyles';
 import { darkTheme, defaultTheme } from 'styles/theme';
-import useAppQueryClient from 'common/hooks/useAppQueryClient';
 
 const App = () => {
   const queryClient = useAppQueryClient();
@@ -25,6 +28,12 @@ const App = () => {
 
     return () => window.removeEventListener('resize', screenSize);
   }, [screenSize]);
+
+  useEffect(() => {
+    if (!userStorage.getToken('access')) return;
+
+    refreshTokenAPI();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
