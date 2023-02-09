@@ -59,6 +59,7 @@ const SignIn = () => {
             type="text"
             placeholder="아이디를 입력해주세요"
             maxLength={12}
+            value={userInfo.userId}
             onChange={handleOnChange}
             isError={error}
           />
@@ -66,6 +67,7 @@ const SignIn = () => {
             name="password"
             type="password"
             placeholder="패스워드를 입력해주세요"
+            value={userInfo.password}
             onChange={handleOnChange}
             isError={error}
           />
