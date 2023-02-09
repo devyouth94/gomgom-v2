@@ -10,7 +10,8 @@ type ModalType =
   | 'delete'
   | 'join'
   | 'logout'
-  | 'info';
+  | 'info'
+  | 'success';
 
 interface ModalState {
   modalType: {
@@ -24,6 +25,7 @@ interface ModalState {
     join: boolean;
     logout: boolean;
     info: boolean;
+    success: boolean;
   };
   message: string;
 }
@@ -39,6 +41,7 @@ const initialState: ModalState = {
     join: false,
     logout: false,
     info: false,
+    success: false,
   },
   message: '',
 };
