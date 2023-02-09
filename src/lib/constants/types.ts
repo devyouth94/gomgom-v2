@@ -22,6 +22,29 @@ export interface DetailItemProps {
   userKey: number;
 }
 
+export interface RecommentItemProps {
+  User: {
+    nickname: string;
+    point: number;
+  };
+  comment: string;
+  commentKey: number;
+  createdAt: string;
+  recommentKey: number;
+  updatedAt: string;
+  userKey: number;
+}
+
+export interface CommentItemProps {
+  comment: string;
+  commentKey: number;
+  nickname: string;
+  point: number;
+  recomment: RecommentItemProps[];
+  updatedAt: string;
+  userKey: number;
+}
+
 export interface VoteResultProps {
   msg: string;
   ok: boolean;

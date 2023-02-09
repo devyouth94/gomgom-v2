@@ -3,24 +3,23 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 import instance from 'app/instance';
-import type { DetailItemProps } from 'lib/constants/types';
+import type { CommentItemProps } from 'lib/constants/types';
 
 type Data = {
-  msg: string;
-  result: DetailItemProps;
+  result: CommentItemProps[];
 };
 
-const getDetail = async (selectKey: number) => {
-  const { data } = await instance.get<Data>(`/select/${selectKey}`);
+const getComment = async (selectKey: number) => {
+  const { data } = await instance.get<Data>(`/comment/${selectKey}`);
 
-  return data;
+  return data.result;
 };
 
-const useGetDetail = () => {
+const useGetComment = () => {
   const navigate = useNavigate();
   const { selectKey } = useParams();
 
-  return useQuery(['detail', Number(selectKey)], () => getDetail(Number(selectKey)), {
+  return useQuery(['comment', Number(selectKey)], () => getComment(Number(selectKey)), {
     onError: (error) => {
       if (axios.isAxiosError(error)) {
         const message = (error.response?.data as { errMsg?: string }).errMsg;
@@ -32,4 +31,4 @@ const useGetDetail = () => {
   });
 };
 
-export default useGetDetail;
+export default useGetComment;
