@@ -45,7 +45,7 @@ const MyRoomContents = () => {
       </Header>
 
       <StMain>
-        {status === 'success' && !contents.length && <StNotResult>투표가 없습니다.</StNotResult>}
+        {status === 'success' && !contents.length && <StNotResult>상담방이 없습니다.</StNotResult>}
         {contents.map((content) => (
           <RoomItem
             key={content.roomKey}
