@@ -8,7 +8,7 @@ const useAppQueryClient = () => {
 
   const queryClient = new QueryClient({
     defaultOptions: {
-      queries: { refetchOnWindowFocus: false },
+      queries: { refetchOnWindowFocus: false, retry: 0 },
       mutations: {
         onError: (error) => {
           if (axios.isAxiosError(error)) {
