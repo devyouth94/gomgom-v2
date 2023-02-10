@@ -10,7 +10,7 @@ import useDeleteComment from 'domains/select/hooks/useDeleteComment';
 import usePutComment from 'domains/select/hooks/usePutComment';
 import usePostRecomment from 'domains/select/hooks/usePostRecomment';
 import type { CommentItemProps } from 'lib/constants/types';
-import { remainedTime } from 'lib/utils/timeCalculation';
+import { commentTime } from 'lib/utils/timeCalculation';
 import { userStorage } from 'lib/utils/storage';
 import { FONT_BOLD, FONT_EXTRABOLD, FONT_M, FONT_XS } from 'styles/textStyles';
 
@@ -69,7 +69,7 @@ const Comment = ({ comment }: Props) => {
         <StTop>
           <div>
             <span>{comment.nickname}</span>
-            <span>{remainedTime(comment.updatedAt)} 전</span>
+            <span>{commentTime(comment.updatedAt)} 전</span>
           </div>
           {userStorage.getUserKey() === comment.userKey ? (
             isEditMode ? (
