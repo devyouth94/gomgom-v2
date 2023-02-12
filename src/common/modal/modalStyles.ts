@@ -37,6 +37,14 @@ const StTextContainer = styled.section`
   }
 `;
 
+const StTextContainerWide = styled(StTextContainer)`
+  > div:nth-child(1) {
+    ${FONT_M};
+    line-height: 1.8rem;
+    color: ${({ theme }) => theme.color.SUB_2};
+  }
+`;
+
 const StButtonContainer = styled.section`
   display: flex;
   align-items: center;
@@ -73,6 +81,10 @@ const StWindow = styled.article`
   line-height: 2.1rem;
 `;
 
+const StWindowWide = styled(StWindow)`
+  width: 33rem;
+`;
+
 const StBackground = styled.article`
   width: 100%;
   height: 100%;
@@ -97,8 +109,10 @@ const StModalContainer = styled.div`
 export {
   StTitleContainer,
   StTextContainer,
+  StTextContainerWide,
   StButtonContainer,
   StWindow,
+  StWindowWide,
   StBackground,
   StModalContainer,
 };

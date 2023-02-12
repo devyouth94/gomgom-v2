@@ -11,7 +11,11 @@ type ModalType =
   | 'join'
   | 'logout'
   | 'info'
-  | 'success';
+  | 'success'
+  | 'drawer'
+  | 'chat_delete'
+  | 'chat_exit'
+  | 'kick';
 
 interface ModalState {
   modalType: {
@@ -26,6 +30,10 @@ interface ModalState {
     logout: boolean;
     info: boolean;
     success: boolean;
+    drawer: boolean;
+    chat_delete: boolean;
+    chat_exit: boolean;
+    kick: boolean;
   };
   message: string;
 }
@@ -42,6 +50,10 @@ const initialState: ModalState = {
     logout: false,
     info: false,
     success: false,
+    drawer: false,
+    chat_delete: false,
+    chat_exit: false,
+    kick: false,
   },
   message: '',
 };
