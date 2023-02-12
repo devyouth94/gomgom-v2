@@ -48,5 +48,6 @@ const StFooterInput = styled.footer`
 
   button {
     display: flex;
+    margin-right: -1rem;
   }
 `;
