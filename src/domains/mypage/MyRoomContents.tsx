@@ -34,7 +34,7 @@ const MyRoomContents = () => {
   });
 
   const handleJoin = (roomKey: number) => {
-    navigate(`/chatroom/${roomKey}`, { state: { now: pathname } });
+    navigate(`/room/${roomKey}`, { state: { now: pathname } });
   };
 
   return (

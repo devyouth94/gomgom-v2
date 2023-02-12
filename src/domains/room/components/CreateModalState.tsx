@@ -12,7 +12,7 @@ const CreateModalState = ({ roomKey }: { roomKey: number | undefined }) => {
 
   const handleClickUpload = () => {
     dispatch(toggleModal({ type: 'upload' }));
-    naviagate(`/room/${roomKey}`, { replace: true });
+    naviagate(`/room/${roomKey}`, { replace: true, state: { now: '/room/create' } });
   };
 
   return (
