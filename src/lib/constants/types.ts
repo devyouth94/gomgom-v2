@@ -85,10 +85,34 @@ export interface PostChatItemProps extends RoomItemProps {
   roomPoint: number;
 }
 
+export interface ChatProps {
+  chat: string;
+  userKey: number;
+  createdAt?: string;
+  User: {
+    nickname: string;
+    point: number;
+  };
+}
+
+export interface SocketData {
+  message: string;
+  userKey: number;
+  nickname: string;
+  point: number;
+  time?: string;
+}
+
 export interface LocationState {
   state: {
     now: string;
   };
+}
+
+export interface User {
+  nickname: string;
+  point: number;
+  userKey: number;
 }
 
 export interface MyInfo {

@@ -12,6 +12,7 @@ import Detail from 'domains/select/Detail';
 import Write from 'domains/select/Write';
 
 import Room from 'domains/room/Room';
+import Chat from 'domains/room/Chat';
 import Create from 'domains/room/Create';
 
 import Answer from 'domains/answer/Answer';
@@ -38,6 +39,7 @@ const Router = () => {
         <Route path="/select/write" element={<Write />} />
 
         <Route path="/room" element={<Room />} />
+        <Route path="/room/:roomKey" element={<Chat />} />
         <Route path="/room/create" element={<Create />} />
 
         <Route path="/answer" element={<Answer />} />
