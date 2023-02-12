@@ -9,5 +9,6 @@ declare namespace NodeJS {
     REACT_APP_REDIRECT_URI: string;
     REACT_APP_GOOGLE_ID: string;
     REACT_APP_GOOGLE_CALLBACK_URL: string;
+    REACT_APP_SOCKET: string;
   }
 }
