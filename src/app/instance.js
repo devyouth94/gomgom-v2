@@ -28,8 +28,7 @@ instance.interceptors.response.use(
           refreshToken: `Bearer ${config.data.refreshToken}`,
         },
       }).then(() => {
-        localStorage.setItem('accessToken', config.data.accessToken);
-        localStorage.setItem('refreshToken', config.data.refreshToken);
+        userStorage.setToken(config.data);
       });
     } else {
       return config;

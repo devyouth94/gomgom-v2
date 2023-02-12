@@ -6,6 +6,7 @@ import Welcome from 'domains/welcome/Welcome';
 import SignIn from 'domains/sign/SignIn';
 import SignUp from 'domains/sign/SignUp';
 import GoogleRedirect from 'domains/sign/GoogleRedirect';
+import KakaoRedirect from 'domains/sign/KakaoRedirect';
 
 import Select from 'domains/select/Select';
 import Detail from 'domains/select/Detail';
@@ -20,7 +21,6 @@ import Answer from 'domains/answer/Answer';
 import MyPage from 'domains/mypage/MyPage';
 import MySelectContents from 'domains/mypage/MySelectContents';
 import MyRoomContents from 'domains/mypage/MyRoomContents';
-import KakaoRedirect from 'domains/sign/KakaoRedirect';
 
 const Router = () => {
   return (
