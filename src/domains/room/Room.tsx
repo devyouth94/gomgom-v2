@@ -22,6 +22,7 @@ import { FONT_M } from 'styles/textStyles';
 
 const Room = () => {
   const { query } = useAppSelector((state) => state.room);
+  const { modalType } = useAppSelector((state) => state.modal);
 
   const isScroll = useScrollHeight();
   const { data: roomInfo, isSuccess, mutate: postRoomInfo } = usePostRoom();
@@ -39,8 +40,7 @@ const Room = () => {
   return (
     <>
       <RoomModalState />
-
-      {isSuccess && <JoinModal roomInfo={roomInfo} entered={entered} />}
+      {isSuccess && modalType.join && <JoinModal roomInfo={roomInfo} entered={entered} />}
 
       <StHeader>
         <Logo handleClick={() => window.location.reload()} />

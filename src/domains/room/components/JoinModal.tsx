@@ -21,6 +21,11 @@ const JoinModal = ({ roomInfo, entered }: Props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  const handleClickEnter = () => {
+    navigate(`/room/${roomInfo.roomKey}`, { state: { now: pathname } });
+    dispatch(toggleModal({ type: 'join' }));
+  };
+
   return (
     <StBackground>
       <StHeader>
@@ -47,11 +52,7 @@ const JoinModal = ({ roomInfo, entered }: Props) => {
         </StFooter>
       </StBody>
 
-      <StGlobalButton
-        onClick={() => {
-          navigate(`/room/${roomInfo.roomKey}`, { state: { now: pathname } });
-        }}
-      >
+      <StGlobalButton onClick={handleClickEnter}>
         {entered.includes(roomInfo.roomKey) ? '참여중인 상담방' : '상담방 참여하기'}
       </StGlobalButton>
     </StBackground>
@@ -138,5 +139,5 @@ const StFooter = styled.div`
 
 const StGlobalButton = styled(GlobalButton)`
   position: absolute;
-  bottom: 9.6rem;
+  bottom: 2rem;
 `;
